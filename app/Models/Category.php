@@ -18,4 +18,13 @@ class Category extends Model
     }
 
 
+    /**
+     * 分类与科目1：n关系
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subjects()
+    {
+        return $this->hasMany('App\Models\Subject');
+    }
+
 }
