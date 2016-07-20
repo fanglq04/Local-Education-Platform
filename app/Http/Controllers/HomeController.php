@@ -24,9 +24,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-//        return view('home');
 
 // 以下是正确的
 //        $user = User::find('2')->manyCategory;
@@ -35,17 +34,44 @@ class HomeController extends Controller
 //        }
 // 以下是正确的
 //        $users = Category::findOrNew('2')->users;
-        $users = Category::all();
+//        $users = Category::all();
 //        print_r($users);
 //        exit();
-        foreach ($users AS $user) {
+//        foreach ($users AS $user) {
 //             print_r($user->users);
-            foreach ($user->users AS $u) {
-                print_r($u->organization);
-                print_r($u->personal);
-                print_r($u->member);
-            }
-        }
+//            foreach ($user->users AS $u) {
+//                print_r($u->organization);
+//                print_r($u->personal);
+//                print_r($u->member);
+//            }
+//        }
+        //实例化模型
+        $userModel = new User();
+        //请求用户对象
+        $user = $request->user();
+        echo '当前登录用户名：'.$user->name;
+        echo "<br />";
+
+        //用户组类型
+        echo '所属组类别：'.$userModel->statusDisplay($user->type);
+        echo "<br />";
+
+        $userInfo = $userModel->autoReturnUserInfo($user);
+
+
+        echo '真实名称：'.$userInfo->name;
+        echo "<br />";
+        echo '描述：'.$userInfo->description;
+        echo "<br />";
+        echo '性别：'. $userModel->genderDisplay($userInfo->gender);
+        echo "<br />";
+        echo '认证状态：'.$userModel->authDisplay($userInfo->authable);
+        echo "<br />";
+
+        return view('home');
+
+
+
     }
 
 

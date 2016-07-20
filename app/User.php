@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -24,6 +25,89 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /**
+     * 显示用户状态组名称
+     * @param $status
+     * @return mixed
+     */
+    public function statusDisplay ($status)
+    {
+        $show_name = [
+            1 => '学生家长',
+            2 => '培训机构',
+            3 => '个人培训班'
+        ];
+        return $show_name[$status];
+    }
+
+
+    /**
+     * 显示用户认证状态名称
+     * @param $auth
+     * @return mixed
+     */
+    public function authDisplay($auth)
+    {
+        $show_name = [
+            '未认证',
+            '已认证'
+        ];
+        return $show_name[$auth];
+    }
+
+
+    /**
+     * 性别状态名称
+     * @param $gender
+     * @return mixed
+     */
+    public function genderDisplay($gender)
+    {
+        $show_name = [
+            1 => '男',
+            2 => '女'
+        ];
+        return $show_name[$gender];
+    }
+
+    /**
+     * 用户组类型映射
+     * @param $type
+     * @return mixed
+     */
+    public function userTypeMaps($type)
+    {
+        $maps = [
+            1 => 'member',
+            2 => 'organization',
+            3 => 'personal'
+        ];
+        return $maps[$type];
+    }
+
+    /**
+     * 自动返回该登录用户所属组方法名
+     * @param Request $request
+     * @return mixed
+     */
+    public function autoReturnUserInfo($user)
+    {
+        $userModel = $this->findOrNew($user->id);
+        switch ($user->type) {
+            case 1:
+                return $userModel->member;
+            break;
+            case 2:
+                return $userModel->organization;
+            break;
+            case 3:
+                return $userModel->personal;
+            break;
+        }
+    }
+
 
 
     /**
@@ -64,4 +148,6 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Category', 'category_user', 'user_id', 'category_id');
     }
+
+
 }
