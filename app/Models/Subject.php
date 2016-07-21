@@ -14,4 +14,14 @@ class Subject extends Model
     {
         return $this->belongsTo('App\Models\Category');
     }
+
+
+    /**
+     * 1个科目属于1个机构或者个人
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

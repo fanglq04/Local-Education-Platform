@@ -27,6 +27,10 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
+        if($request->user()) {
+            redirect('login');
+        }
+        
 // 以下是正确的
 //        $user = User::find('2')->manyCategory;
 //        foreach ($user AS $u) {

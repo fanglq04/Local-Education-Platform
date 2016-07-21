@@ -150,4 +150,14 @@ class User extends Authenticatable
     }
 
 
+    /**
+     * 1个机构或个人可辅导多个科目
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subjects()
+    {
+        return $this->hasMany('App\Models\Subject');
+    }
+
+
 }
