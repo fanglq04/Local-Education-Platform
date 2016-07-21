@@ -30,7 +30,7 @@ class HomeController extends Controller
         if($request->user()) {
             redirect('login');
         }
-        
+
 // 以下是正确的
 //        $user = User::find('2')->manyCategory;
 //        foreach ($user AS $u) {
@@ -72,9 +72,17 @@ class HomeController extends Controller
         echo '认证状态：'.$userModel->authDisplay($userInfo->authable);
         echo "<br />";
 
+
+
+
+        $tags = User::find($user->id)->tags;
+
+        echo "标签是：<br />";
+        foreach ($tags AS $tag) {
+            echo $tag->name;
+            echo "<br />";
+        }
         return view('home');
-
-
 
     }
 

@@ -160,4 +160,13 @@ class User extends Authenticatable
     }
 
 
+    /**
+     * 一个用户有多个标签
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('App\Models\Tag');
+    }
+
 }
