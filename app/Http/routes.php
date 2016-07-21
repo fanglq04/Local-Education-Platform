@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -26,13 +22,54 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
-
-    Route::get('/home', 'HomeController@index');
+Route::get('/', function () {
+    return view('welcome');
 });
 
 
+//===========================================标签=============================================
+Route::get('/tags', 'TagsController@index');
+Route::get('/tags/{name}', 'TagsController@lists');
+
+
+
+
+
+
+//=============================================分类===========================================
+Route::get('/category', 'CategoryController@index');
+Route::get('/category/{category_id}/{type?}/{auth?}', 'CategoryController@lists');
+
+
+
+
+
+//=============================================科目==========================================
+Route::get('/subject', 'SubjectController@index');
+
+
+
+
+
+
+
+
+//========================================个人主页=============================================
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+    Route::get('/home', 'HomeController@index');    //个人主页
+    Route::get('/home/profile', 'HomeController@profile');  //个人信息
+    Route::post('/home/profile/save', 'HomeController@profileSave');  //信息保存
+});
+
+
+
+
+
+
+
+
+//===========================================后台================================================
 Route::group(['middleware' => ['web'], 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::auth();
 
@@ -51,10 +88,4 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Admin', 'prefix' => 'admi
 
 Route::get('/admin', function () {
     return view('admin.welcome');
-});
-
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
-
-    Route::get('/home', 'HomeController@index');
 });
