@@ -21,15 +21,13 @@
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+//===========================================首页=========================================
+Route::get('/', 'IndexController@index');
 
 
 //===========================================标签=============================================
 Route::get('/tags', 'TagsController@index');
-Route::get('/tags/{name}', 'TagsController@lists');
+Route::get('/tags/users/{tag_id}', 'TagsController@users');
 
 
 
