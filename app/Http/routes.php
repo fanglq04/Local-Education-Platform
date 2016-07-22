@@ -81,6 +81,8 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Admin', 'prefix' => 'admi
     Route::resource('permission', 'PermissionController');
     Route::post('permission/destroyall',['as'=>'admin.permission.destroy.all','uses'=>'PermissionController@destroyAll']);
     Route::resource('blog', 'BlogController');
+    Route::resource('member', 'MemberController');
+    Route::get('member/edit/{uid}', ['as' => 'admin.member', 'uses' => 'MemberController@index']);
 });
 
 

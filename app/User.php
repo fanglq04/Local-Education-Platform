@@ -32,14 +32,14 @@ class User extends Authenticatable
      * @param $status
      * @return mixed
      */
-    public function statusDisplay ($status)
+    public function groupDisplay ($type)
     {
         $show_name = [
             1 => '学生家长',
             2 => '培训机构',
             3 => '个人培训班'
         ];
-        return $show_name[$status];
+        return $show_name[$type];
     }
 
 
@@ -57,6 +57,20 @@ class User extends Authenticatable
         return $show_name[$auth];
     }
 
+
+    /**
+     * 状态显示
+     * @param $status
+     * @return mixed
+     */
+    public function statusDisplay($status)
+    {
+        $show_name = [
+            '已禁用',
+            '正  常'
+        ];
+        return $show_name[$status];
+    }
 
     /**
      * 性别状态名称

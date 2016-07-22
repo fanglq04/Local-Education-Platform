@@ -62,6 +62,7 @@ class PermissionPresenter extends FractalPresenter
     public function menus()
     {
         $menus = $this->permission->menus();
+
         $html = '';
         if($menus) {
 
@@ -94,7 +95,6 @@ class PermissionPresenter extends FractalPresenter
 
                 $html .= '<ul class="children">';
                 foreach ($menu['sub'] as $sub) {
-
                     if(($sub['name'] !== '#') && !Route::has($sub['name'])) {
                         continue;
                     }

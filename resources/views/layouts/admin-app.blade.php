@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/png">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-    <title>Rbac</title>
+    <title>平台管理后台</title>
 
     @section('css')
         <link href="{{ asset('css/style.default.css') }}" rel="stylesheet">
@@ -35,7 +35,7 @@
     <div class="leftpanel">
 
         <div class="logopanel">
-            <h1><span>[</span> Rbac <span>]</span></h1>
+            <h1><span>[</span> 管理后台 <span>]</span></h1>
         </div><!-- logopanel -->
 
         <div class="leftpanelinner">
