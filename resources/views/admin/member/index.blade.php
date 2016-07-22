@@ -12,7 +12,7 @@
         <div class="row">
 
 
-            <div class="col-sm-9 col-lg-10">
+            <div class="col-sm-10 col-lg-12">
 
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -92,7 +92,7 @@
                                         </td>
                                         <td>{{ $user->created_at }}</td>
                                         <td>
-                                            <a href="{{ route('admin.admin_user.edit',['id'=>$user->id]) }}"
+                                            <a href="{{ route('admin.member.edit',['id'=>$user->id]) }}"
                                                class="btn btn-white btn-xs"><i class="fa fa-pencil"></i> 编辑</a>
                                         </td>
                                     </tr>

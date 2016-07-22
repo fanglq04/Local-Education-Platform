@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\User;
 use Breadcrumbs;
+use Request;
 
 class MemberController extends BaseController
 {
@@ -34,24 +35,31 @@ class MemberController extends BaseController
             $breadcrumbs->parent('admin-member');
             $breadcrumbs->push('用户列表', route('admin.member.index'));
         });
-        $users = User::all();
-        
+
+        $users = User::all();        
         return view('admin.member.index', ['users' => $users]);
     }
 
 
     //编辑
     public function edit($uid)
-    {
-        $uer = User::findOrNew($uid);
-        print_r($uer);
-        $userModel = new User();
-        $info = $userModel->autoReturnUserInfo($uer);
-        print_r($info);
+    {        
+        Breadcrumbs::register('admin-member-edit', function ($breadcrumbs) {
+            $breadcrumbs->parent('admin-member');
+            $breadcrumbs->push('用户编辑', route('admin.member.edit'));
+        });
 
-        return view('admin.member.edit');
+        $user = User::findOrNew($uid);
+        $userModel = new User();
+        $info = $userModel->autoReturnUserInfo($user);
+        return view('admin.member.edit', ['user' => $user]);
     }
 
+
+    public function update(Request $request)
+    {
+        print_r($request->input);
+    }
 
     //禁用
     public function forbidden()
