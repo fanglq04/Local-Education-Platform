@@ -26,3 +26,5 @@
 
 #### Jul 22, 2016
 - 后台用户管理、model+controller+view
+- 用户列表
+- 用户编辑route、model、C、V
