@@ -1,15 +1,25 @@
-# 地方教育平台（Larval 5.2 RBAC）
+# 地方教育平台（Larval 5.2）
 
 ## 说明
 
-基于Laravel 5.2 的 RBAC 开发的本地教育平台
+基于Laravel 5.2 的本地教育平台
 
+##记录
+-Jul 18, 2016 init
 
-## 安装
+-Jul 19, 2016 加入基础模型
 
-- git clone 到本地
-- 执行 `composer install`
-- 配置 **.env** 中数据库连接信息
-- 执行 `php artisan db:seed`
-- 执行 `php artisan serve`
-- 默认后台账号:admin@admin.com 密码:admin
+-Jul 20, 2016
+            -Usermodel中增加常见方法
+            -增加科目
+
+-Jul 21, 2016
+            -增加科目模型类  … 定义关联关系
+            -增加标签模型
+            -定义关联关系
+            -sql文件
+            -增加路由和控制器
+            -增加相关模板
+
+-Jul 22, 2016
+            -后台用户管理
