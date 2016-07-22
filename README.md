@@ -6,13 +6,15 @@
 
 ##记录
 
-#### Jul 18, 2016 init
+#### Jul 18, 2016 
+- init初始化项目
 
-#### Jul 19, 2016 加入基础模型
+#### Jul 19, 2016 
+- 加入基础模型Personal、Member、Organzation等
 
 #### Jul 20, 2016
 - Usermodel中增加常见方法
-- 增加科目
+- 增加科目Subject
 
 #### Jul 21, 2016
 - 增加科目模型类定义关联关系
@@ -23,4 +25,4 @@
 - 增加相关模板
 
 #### Jul 22, 2016
-- 后台用户管理
+- 后台用户管理、model+controller+view
