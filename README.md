@@ -28,3 +28,7 @@
 - 后台用户管理、model+controller+view
 - 用户列表
 - 用户编辑route、model、C、V
+
+#### Jul 23, 2016
+- 增加后台标签C、Route
+- 关联USER-SUBJECTS关系
