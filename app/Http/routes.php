@@ -81,9 +81,17 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Admin', 'prefix' => 'admi
     Route::resource('permission', 'PermissionController');
     Route::post('permission/destroyall',['as'=>'admin.permission.destroy.all','uses'=>'PermissionController@destroyAll']);
     Route::resource('blog', 'BlogController');
+
+    //用户
     Route::resource('member', 'MemberController');
     Route::get('member/{uid}/edit', ['as' => 'admin.member.edit', 'uses' => 'MemberController@edit']);
     Route::put('member/{uid}/update', ['as' => 'admin.member.update', 'uses' => 'MemberController@update']);
+
+    //标签
+    Route::get('tag', 'TagController');
+    Route::get('tag/{tag_id}/edit', ['as' => 'admin.tag.edit', 'uses' => 'TagController@edit']);
+    Route::put('tag/{tag_id}/update', ['as' => 'admin.tag.update', 'uses' => 'TagController@update']);
+    Route::delete('tag/{tag_id}/delete', ['as' => 'admin.tag.delete', 'uses' => 'TagController@delete']);
 });
 
 

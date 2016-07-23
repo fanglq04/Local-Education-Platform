@@ -8,7 +8,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-
 use App\User;
 use Breadcrumbs;
 use Request;

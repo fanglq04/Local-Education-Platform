@@ -12,4 +12,12 @@ namespace App\Http\Controllers\Admin;
 class SubjectController
 {
 
+    /**
+     * 一个科目有多个机构或个人
+     * @return mixed
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
 }
