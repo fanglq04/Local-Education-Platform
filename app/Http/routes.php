@@ -88,7 +88,7 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Admin', 'prefix' => 'admi
     Route::put('member/{uid}/update', ['as' => 'admin.member.update', 'uses' => 'MemberController@update']);
 
     //标签
-    Route::get('tag', 'TagController');
+    Route::resource('tag', 'TagController');
     Route::get('tag/{tag_id}/edit', ['as' => 'admin.tag.edit', 'uses' => 'TagController@edit']);
     Route::put('tag/{tag_id}/update', ['as' => 'admin.tag.update', 'uses' => 'TagController@update']);
     Route::delete('tag/{tag_id}/delete', ['as' => 'admin.tag.delete', 'uses' => 'TagController@delete']);

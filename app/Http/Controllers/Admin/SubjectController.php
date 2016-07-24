@@ -9,7 +9,7 @@
 namespace App\Http\Controllers\Admin;
 
 
-class SubjectController
+class SubjectController extends BaseController
 {
 
     /**
