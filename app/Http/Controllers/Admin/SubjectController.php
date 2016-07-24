@@ -8,16 +8,39 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Breadcrumbs;
+use App\Models\Subject;
 
 class SubjectController extends BaseController
 {
 
-    /**
-     * 一个科目有多个机构或个人
-     * @return mixed
-     */
-    public function users()
+    public function __construct()
     {
-        return $this->belongsToMany('App\User');
+        Breadcrumbs::setView('admin._partials.breadcrumbs');
+
+        Breadcrumbs::register('admin-subject', function ($breadcrumbs) {
+            $breadcrumbs->parent('dashboard');
+            $breadcrumbs->push('科目管理', route('admin.subject.index'));
+        });
+
+        parent::__construct();
     }
+
+
+    /**
+     * 首页、默认页
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
+    {
+        Breadcrumbs::register('admin-subject-index', function ($breadcrumbs) {
+            $breadcrumbs->parent('admin-subject');
+            $breadcrumbs->push('科目列表', route('admin.subject.index'));
+        });
+        $subjects = Subject::all();
+        return view('admin.subject.index', ['subjects' => $subjects]);
+    }
+
+
+
 }

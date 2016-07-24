@@ -17,11 +17,11 @@ class Subject extends Model
 
 
     /**
-     * 1个科目属于1个机构或者个人
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * 一个科目有多个机构或个人
+     * @return mixed
      */
-    public function user()
+    public function users()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsToMany('App\User');
     }
 }
