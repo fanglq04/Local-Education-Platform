@@ -1,16 +1,19 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Administrator
+ * --------------------------------------
+ * 用户类控制器
+ * User: Jiafang.Wang
  * Date: 2016-07-22
- * Time: 09:41
+ * Time: 09:02
+ * File: MemberController.php
+ * --------------------------------------
  */
 
 namespace App\Http\Controllers\Admin;
 
 use App\User;
-use Breadcrumbs;
-use Request;
+use Toastr,Breadcrumbs;
+use Illuminate\Http\Request;
 
 class MemberController extends BaseController
 {
@@ -49,15 +52,31 @@ class MemberController extends BaseController
         });
 
         $user = User::findOrNew($uid);
-        $userModel = new User();
-        $info = $userModel->autoReturnUserInfo($user);
+//        $userModel = new User();
+//        $info = $userModel->autoReturnUserInfo($user);
         return view('admin.member.edit', ['user' => $user]);
     }
 
 
-    public function update(Request $request)
+    /**
+     * 更新
+     * @param Request $request
+     * @param $uid
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function update(Request $request, $uid)
     {
-        print_r($request->input);
+        $attributes = [
+            'email' => $request->input('email'),
+            'gender' => $request->input('gender'),
+            'authable' => $request->input('authable'),
+            'status' => $request->input('status'),
+            'mobile' => $request->input('mobile'),
+        ];
+
+        User::where('id', $uid)->update($attributes);
+        Toastr::success('更新成功!');
+        return redirect('admin/member/');
     }
 
     //禁用

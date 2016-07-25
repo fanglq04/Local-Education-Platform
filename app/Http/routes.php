@@ -85,7 +85,7 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Admin', 'prefix' => 'admi
     //用户
     Route::resource('member', 'MemberController');
     Route::get('member/{uid}/edit', ['as' => 'admin.member.edit', 'uses' => 'MemberController@edit']);
-    Route::put('member/{uid}/update', ['as' => 'admin.member.update', 'uses' => 'MemberController@update']);
+    Route::post('member/{uid}/update', ['as' => 'admin.member.update', 'uses' => 'MemberController@update']);
 
     //分类
     Route::resource('category', 'CategoryController');

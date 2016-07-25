@@ -1,9 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Administrator
+ * --------------------------------------
+ * 科目类控制器
+ * User: Jiafang.Wang
  * Date: 2016-07-22
  * Time: 11:02
+ * File: SubjectController.php
+ * --------------------------------------
  */
 
 namespace App\Http\Controllers\Admin;

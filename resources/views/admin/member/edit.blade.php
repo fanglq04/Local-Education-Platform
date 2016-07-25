@@ -19,7 +19,7 @@
                             <a href="" class="panel-close">×</a>
                             <a href="" class="minimize">−</a>
                         </div>
-                        <h4 class="panel-title">编辑用户A</h4>
+                        <h4 class="panel-title">编辑用户</h4>
                     </div>
 
                     <form class="form-horizontal form-bordered" action="{{ route('admin.member.update',['id'=>$user->id]) }}" method="POST">
@@ -83,7 +83,15 @@
                                 </div>
                             </div>
 
-                            <input type="hidden" name="_method" value="PUT">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">手机 <span class="asterisk">*</span></label>
+                                <div class="col-sm-6">
+                                    <input type="text"  data-toggle="tooltip" name="mobile"
+                                           data-trigger="hover" class="form-control tooltips"
+                                           value="{{$user->mobile}}">
+                                </div>
+                            </div>
+
                             {{ csrf_field() }}
 
                         </div><!-- panel-body -->
