@@ -87,6 +87,13 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Admin', 'prefix' => 'admi
     Route::get('member/{uid}/edit', ['as' => 'admin.member.edit', 'uses' => 'MemberController@edit']);
     Route::put('member/{uid}/update', ['as' => 'admin.member.update', 'uses' => 'MemberController@update']);
 
+    //分类
+    Route::resource('category', 'CategoryController');
+    Route::get('category/{id}/edit', ['as' => 'admin.category.edit', 'uses' => 'CategoryController@edit']);
+    Route::put('category/{id}/update', ['as' => 'admin.category.update', 'uses' => 'CategoryController@update']);
+    Route::delete('category/{id}/delete', ['as' => 'admin.category.delete', 'uses' => 'CategoryController@delete']);
+
+
     //标签
     Route::resource('tag', 'TagController');
     Route::get('tag/{tag_id}/edit', ['as' => 'admin.tag.edit', 'uses' => 'TagController@edit']);

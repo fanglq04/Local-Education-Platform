@@ -4,7 +4,7 @@
 
     <div class="pageheader">
         <h2><i class="fa fa-home"></i> Dashboard </h2>
-        {!! Breadcrumbs::render('admin-tag-index') !!}
+        {!! Breadcrumbs::render('admin-category-index') !!}
     </div>
 
     <div class="contentpanel panel-email">
@@ -22,7 +22,7 @@
                                             class="glyphicon glyphicon-trash"></i></a>
                             </div>
                         </div><!-- pull-right -->
-                        <h5 class="subtitle mb5">标签列表</h5>
+                        <h5 class="subtitle mb5">分类列表</h5>
                         <div class="table-responsive col-md-12">
                             <table class="table mb30">
                                 <thead>
@@ -39,19 +39,19 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($tags as $tag)
+                                @foreach($categories as $category)
                                     <tr>
                                         <td>
                                             <div class="ckbox ckbox-default">
-                                                <input type="checkbox" name="id" id="id-{{ $tag->id }}"
-                                                       value="{{ $tag->id }}" class="selectall-item"/>
-                                                <label for="id-{{ $tag->id }}"></label>
+                                                <input type="checkbox" name="id" id="id-{{ $category->id }}"
+                                                       value="{{ $category->id }}" class="selectall-item"/>
+                                                <label for="id-{{ $category->id }}"></label>
                                             </div>
                                         </td>
-                                        <td>{{ $tag->id }}</td>
-                                        <td>{{ $tag->name }}</td>
+                                        <td>{{ $category->id }}</td>
+                                        <td>{{ $category->name }}</td>
                                         <td>
-                                            <a href="{{ route('admin.tag.edit',['id'=>$tag->id]) }}"
+                                            <a href="{{ route('admin.category.edit',['id'=>$category->id]) }}"
                                                class="btn btn-white btn-xs"><i class="fa fa-pencil"></i> 编辑</a>
                                         </td>
                                     </tr>
