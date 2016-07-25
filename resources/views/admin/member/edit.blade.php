@@ -11,8 +11,7 @@
 
         <div class="row">
 
-<div class="col-sm-9 col-lg-10">
-
+            <div class="col-sm-10 col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-btns">
@@ -107,8 +106,22 @@
                         </div><!-- panel-footer -->
                     </form>
                 </div>
+            </div><!-- col-sm-9 -->
 
-            </div><!-- col-sm-9 -->            
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">详细信息</h4>
+                    </div>
+                    <form class="form-horizontal form-bordered" action="{{ route('admin.member.update',['id'=>$user->id]) }}" method="POST">
+
+
+
+
+                    </form>
+                </div>
+            </div>
+
         </div><!-- row -->
     </div>
 @endsection

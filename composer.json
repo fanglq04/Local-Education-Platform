@@ -13,7 +13,8 @@
         "ryan/toastr-for-laravel": "^1.0",
         "league/fractal": "^0.13.0",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
-        "barryvdh/laravel-debugbar": "^2.2"
+        "barryvdh/laravel-debugbar": "^2.2",
+        "barryvdh/laravel-ide-helper": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
